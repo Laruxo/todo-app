@@ -1,11 +1,15 @@
-import buble from 'rollup-plugin-buble';
+import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 
 export default {
   sourceMap: true,
   format: 'iife',
   plugins: [
-    buble({
+    babel({
+      babelrc: false,
+      presets: [
+        'es2015-rollup'
+      ],
       exclude: 'node_modules/**'
     }),
     uglify()
