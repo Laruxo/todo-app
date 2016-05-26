@@ -32,7 +32,7 @@
     "postcss": "postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:js": "eslint resources/scripts/**",
-    "lint:css": "sass-lint resources/styles/** -q -v"
+    "lint:css": "sass-lint resources/styles/**/*.scss -q -v"
   },
   "eslintConfig": {
     "extends": "google",
