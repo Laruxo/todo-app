@@ -2,10 +2,6 @@ import Item from '../models/item';
 import ItemMapper from '../mappers/item-mapper';
 import todoItemTemplate from '../templates/todo-item';
 
-/**
- * TODO: about box
- */
-
 class ToDo {
   /**
    * Creates To Do module instance and registers its events.
@@ -14,7 +10,7 @@ class ToDo {
   constructor(element) {
     this.element = element;
     this.list = this.element.querySelector('.todo__list');
-    this.addButton = this.element.querySelector('.todo__add');
+    this.add = this.element.querySelector('.todo__add');
 
     this.registerEvents();
   }
@@ -23,7 +19,7 @@ class ToDo {
    * Registers all this module events
    */
   registerEvents() {
-    this.addButton.addEventListener('click', e => {
+    this.add.addEventListener('click', e => {
       this.handleNewItemSubmit(e.currentTarget.control);
     });
 

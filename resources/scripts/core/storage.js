@@ -14,7 +14,6 @@ const Storage = {
     for (let key in all) {
       if (all.hasOwnProperty(key)) {
         if (JSON.stringify(all[key]) === json) {
-          console.log('same');
           return false;
         }
       }
