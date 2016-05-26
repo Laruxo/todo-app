@@ -4,10 +4,10 @@
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .mdl-card__supporting-text {
-  padding: 0;
   width: 100%;
   box-sizing: border-box;
 }
