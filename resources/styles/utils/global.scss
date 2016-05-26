@@ -18,8 +18,11 @@
 }
 
 .mdl-textfield__input {
+  padding-right: 4px;
+  padding-left: 4px;
   letter-spacing: .04em;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  box-sizing: border-box;
 }
 
 .mdl-list__item-avatar {
