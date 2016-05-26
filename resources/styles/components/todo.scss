@@ -1,0 +1,25 @@
+.todo {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo__list {
+  margin: 0;
+  padding: 0;
+}
+
+.todo__item {
+  border-bottom: 1px solid $card-border-color;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.todo__item-add {
+  padding-top: 0;
+  padding-bottom: 0;
+}

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  justify-content: center;
+  align-items: center;
+}
+
+.mdl-card__supporting-text {
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mdl-list__item-secondary-action {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.mdl-textfield__input {
+  letter-spacing: .04em;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.mdl-list__item-avatar {
+  max-width: 14px;
+  max-height: 14px;
+}
