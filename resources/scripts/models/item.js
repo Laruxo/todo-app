@@ -36,9 +36,14 @@ class Item {
 
   /**
    * Saves Item
+   * @return {int|boolean} saved item id or false on failure
    */
   save() {
-    this.id = ItemMapper.save(this);
+    let id = ItemMapper.save(this);
+    if (id !== false) {
+      this.id = id;
+    }
+    return id;
   }
 }
 

@@ -12,9 +12,18 @@
   box-sizing: border-box;
 }
 
+.mdl-list__item-primary-content {
+  position: relative;
+}
+
 .mdl-list__item-secondary-action {
   display: flex;
   flex-flow: row nowrap;
+}
+
+.mdl-list__item-avatar {
+  max-width: 14px;
+  max-height: 14px;
 }
 
 .mdl-textfield__input {
@@ -25,7 +34,18 @@
   box-sizing: border-box;
 }
 
-.mdl-list__item-avatar {
-  max-width: 14px;
-  max-height: 14px;
+.mdl-textfield__error {
+  right: 3px;
+  bottom: 3px;
+  pointer-events: none;
+}
+
+.in-invalid {
+  .mdl-textfield__input {
+    border-color: $input-text-error-color;
+  }
+
+  .mdl-textfield__error {
+    visibility: visible;
+  }
 }

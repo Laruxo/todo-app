@@ -3,7 +3,6 @@ import ItemMapper from '../mappers/item-mapper';
 import todoItemTemplate from '../templates/todo-item';
 
 /**
- * TODO: duplicate entries should not be allowed
  * TODO: about box
  */
 
@@ -117,11 +116,18 @@ class ToDo {
    * @param {string} content of new Item
    */
   addItem(content) {
+    let itemAdd = this.element.querySelector('.todo__item-add');
+    itemAdd.classList.remove('in-invalid');
+
     let item = new Item(null, {
       content: content,
       checked: false
     });
-    item.save();
+    if (item.save() === false) {
+      itemAdd.classList.add('in-invalid');
+      return;
+    }
+
     this.renderItem(item);
   }
 
@@ -141,8 +147,6 @@ class ToDo {
    * @param {int} id of item to save
    */
   saveItem(id) {
-    console.log('save ' + id);
-
     let itemNode = this.list.querySelector('#item-' + id);
     itemNode.querySelector('.todo__save').classList.toggle('hidden');
     itemNode.querySelector('.todo__edit').classList.toggle('hidden');
@@ -164,7 +168,6 @@ class ToDo {
    * @param {int} id of item to start editing
    */
   editItem(id) {
-    console.log('edit ' + id);
     let item = this.list.querySelector('#item-' + id);
     item.querySelector('.todo__save').classList.toggle('hidden');
     item.querySelector('.todo__edit').classList.toggle('hidden');
@@ -182,7 +185,6 @@ class ToDo {
    * @param {int} id of item to delete
    */
   deleteItem(id) {
-    console.log('delete ' + id);
     ItemMapper.remove(id);
     this.list.removeChild(this.list.querySelector('#item-' + id));
   }

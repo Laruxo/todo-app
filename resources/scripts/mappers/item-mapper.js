@@ -26,7 +26,7 @@ export default {
 
     for (let key in data) {
       if (data.hasOwnProperty(key)) {
-        let item = new Item(key, JSON.parse(data[key]));
+        let item = new Item(parseInt(key, 10), data[key]);
         items.push(item);
       }
     }
@@ -37,10 +37,9 @@ export default {
   /**
    * Saves given item in storage
    * @param {Item} item to save in storage
-   * @return {int} new item id
+   * @return {int|boolean} saved item id or false if it fails to save
    */
   save(item) {
-    console.log('saving', item);
     return Storage.save({
       content: item.content,
       checked: item.checked
