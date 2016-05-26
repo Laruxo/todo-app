@@ -5,7 +5,6 @@ import todoItemTemplate from '../templates/todo-item';
 /**
  * TODO: duplicate entries should not be allowed
  * TODO: about box
- * TODO: create and save item with enter
  */
 
 class ToDo {
@@ -26,19 +25,13 @@ class ToDo {
    */
   registerEvents() {
     this.addButton.addEventListener('click', e => {
-      let input = e.currentTarget.control;
-      this.addItem(input.value);
-      input.value = '';
+      this.handleNewItemSubmit(e.currentTarget.control);
     });
 
     this.list.addEventListener('click', e => {
       let elem = e.target;
       while (elem) {
-        if (elem === e.currentTarget) {
-          break;
-        }
-
-        if (this.handleListClick(elem)) {
+        if (elem === e.currentTarget || this.handleListClick(elem)) {
           break;
         }
 
@@ -46,9 +39,27 @@ class ToDo {
       }
     });
 
-    this.list.addEventListener('input', e => {
-      console.log(e);
+    this.element.addEventListener('keyup', e => {
+      // Enter pressed
+      if (e.keyCode === 13) {
+        let element = e.target;
+        if (element.classList.contains('todo__input')) {
+          let checkbox = element.parentNode.querySelector('.todo__checkbox');
+          this.saveItem(parseInt(checkbox.id, 10));
+        } else if (element.id === 'todo-new-item') {
+          this.handleNewItemSubmit(element);
+        }
+      }
     });
+  }
+
+  /**
+   * Handles submit of input element
+   * @param {Element} input that is being submitted
+   */
+  handleNewItemSubmit(input) {
+    this.addItem(input.value);
+    input.value = '';
   }
 
   /**
