@@ -9,6 +9,13 @@
   padding: 0;
 }
 
+.todo__checkbox {
+  &:checked + .todo__label {
+    text-decoration: line-through;
+    color: $disabled-item-text-color;
+  }
+}
+
 .todo__item {
   border-bottom: 1px solid $card-border-color;
   padding-top: 0;
