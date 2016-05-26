@@ -8,13 +8,9 @@ class Modal {
   }
 
   registerEvents() {
-    this.openButton.addEventListener('click', e => {
-      this.open();
-    });
+    this.openButton.addEventListener('click', this.open.bind(this));
 
-    this.closeButton.addEventListener('click', e => {
-      this.close();
-    });
+    this.closeButton.addEventListener('click', this.close.bind(this));
   }
 
   open() {
