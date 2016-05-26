@@ -12,6 +12,7 @@ export default function(item) {
       '<label class="todo__label mdl-checkbox__label" for="' + item.id + '">' +
         item.content +
       '</label>' +
+      '<input type="text" class="todo__input mdl-textfield__input hidden">' +
     '</span>' +
     '<span class="mdl-list__item-secondary-action todo__actions" ' +
            'data-id="' + item.id + '">' +
